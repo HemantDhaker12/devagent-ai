@@ -1,7 +1,12 @@
 from fastapi import FastAPI
-from app.api.routes import health, issue
+from app.db.session import engine
+from app.db.base import Base
+from app.models import user
+from app.api.routes import auth, issue
 
-app = FastAPI(title="DevAgent")
+app = FastAPI()
 
-app.include_router(health.router)
+app.include_router(auth.router)
 app.include_router(issue.router)
+# Create tables
+Base.metadata.create_all(bind=engine)
