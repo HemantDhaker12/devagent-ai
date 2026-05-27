@@ -15,13 +15,15 @@ prompt = ChatPromptTemplate.from_template(
 )
 
 
-async def analyze_issue_with_ai(title: str, body: str):
+async def analyze_issue_with_ai(title: str, body: str,similar_issues: str):
 
     chain = prompt | llm
 
     response = await chain.ainvoke({
         "title": title,
-        "body": body or "No issue body provided"
+        "body": body or "No issue body provided",
+        "similar_issues": similar_issues
+        
     })
 
     cleaned_response = (

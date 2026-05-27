@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 from app.db.session import engine
 from app.db.base import Base
-from app.models import user
+
 from app.api.routes import auth, issue
+
+from app.models import user
+from app.models import issue as issue_model
 
 app = FastAPI()
 

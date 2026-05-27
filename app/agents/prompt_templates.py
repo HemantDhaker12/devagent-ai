@@ -30,4 +30,7 @@ Issue Title:
 
 Issue Body:
 {body}
+
+Similar Past Issues:
+{similar_issues}
 """
